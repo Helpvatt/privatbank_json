@@ -1,0 +1,18 @@
+# .NET
+bin/
+obj/
+*.csproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vscode/
+.vs/
+
+# Пакети та залежності
+packages/
+*.nupkg
+
+# Логи та тимчасові файли
+*.log
+*.tmp
