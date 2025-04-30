@@ -37,16 +37,24 @@ Content-Length: 166
 
 
 Інструкція по встановленню для Windows
-1.Встановити на компьютер NET 6.0 (або інший але з виправленням залежностей перед збіркою в файлі TerminalClientApp.csproj)
+
+1.Встановити на компьютер NET 6.0 (або інший але з виправленням залежностей перед збіркою в файлі TerminalClientApp.csproj)  
+
 2. Обрати папку зДля якої ОС буде збірка , зберегти на компьютер
+
 3. Відкрити папку проекту в командному рядку
+
 4. Виконати команду dotnet publish -c Release -r win-x64 --self-contained true -o C:\Users\User\TerminalClient\publish
+
 5. Папку C:\Users\User\TerminalClient\publish перемістити в Programfiles або в інше місце
+
 6. Створити службу windows  sc create TerminalClientService binPath= "C:\Users\User\TerminalClient\publish\TerminalClient.exe" DisplayName= "Terminal Client Service" start= auto (шлях до виконуваного файлу може відрізнятися)
+
 7. Відкрити порти 8080 і 2000 в бранмаузері
 
 Інструкція по встановленню для Linux
+
 В процессі наповнення.....
 
 
-Вітаются будь яка допомога  в розвитку проекту 
+Вітається будь яка допомога  в розвитку проекту 
