@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      name: Checkout code
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0.x' # Укажите вашу версию .NET (например, 6.0.x, 7.0.x, 8.0.x)
+
+    - name: Restore dependencies for Linux project
+      run: dotnet restore linux/TerminalClientApp.csproj
+
+    - name: Build Linux project
+      run: dotnet build linux/TerminalClientApp.csproj --no-restore
+
+    - name: Restore dependencies for Windows project
+      run: dotnet restore windows/TerminalClientApp.csproj
+
+    - name: Build Windows project
+      run: dotnet build windows/TerminalClientApp.csproj --no-restore
+
+    # Раскомментируйте, если добавите тесты
+    # - name: Run tests
+    #   run: dotnet test tests/TerminalClientApp.Tests.csproj --no-build --verbosity normal
